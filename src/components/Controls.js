@@ -1,29 +1,27 @@
 import React from "react";
+import css from "./Counter.css"
 
 
-const Controls = ({onGood, onNeutral, onBad, goodValue, neutralValue, badValue, onTotal, onPositiveFeedback})=> {
-return (<section className="statistics">
-<h2 className="title">Please leave feedback</h2>
-<ul className="Button-list">
-  <li className="Button">
-  <button tupe="button" onClick={onGood}>Good</button>
-  </li>
-  <li className="Button" >
-  <button tupe="button" onClick={onNeutral}>Neutral</button>
-  </li>
-  <li className="Button">
-  <button tupe="button" onClick={onBad}>Bad</button>
-  </li>
-</ul>
-<h3>Statistics</h3>
-<ul>
-  <li><span>Good:{goodValue}</span></li>
-  <li><span>Neutral: {neutralValue}</span></li>
-  <li><span>Bad:{badValue}</span></li>
-  <li><span>Total:{onTotal}</span></li>
-  <li><span>Positive Feedback:{onPositiveFeedback}</span></li>
-</ul>
-</section>)
-}; 
+const Controls = ({ onGood, onNeutral, onBad}) => {
+  return (
+    <div>
+      <section className={css.statistics}>
+        <h2 className="title">Please leave feedback</h2>
+        <ul className="buttonList">
+          <li >
+            <button type="button" className="Button" onClick={onGood}>Good</button>
+          </li>
+          <li>
+            <button type="button" className="Button"onClick={onNeutral}>Neutral</button>
+          </li>
+          <li>
+            <button type="button" className="Button" onClick={onBad}>Bad</button>
+          </li>
+        </ul>
+        <h3 className="title">Statistics</h3>
+      </section>
+    </div>
+  );
+};
 
-export default Controls; 
+export default Controls;

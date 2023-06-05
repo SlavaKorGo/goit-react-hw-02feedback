@@ -1,18 +1,21 @@
 import React, { Component } from "react";
 import Controls from "./Controls";
+import Statistics from "./Statistics";
+import Notification from "./Notification";
+
 
 class Counter extends Component {
-    static defaultProps = {
+  static defaultProps = {
     initialValue: 0,
-    }; 
+  }; 
 
-   state = {
+  state = {
     goodValue: this.props.initialValue,
     neutralValue: this.props.initialValue,
     badValue: this.props.initialValue,
-   }; 
+  }; 
 
-   handleGoodIncrement = () => {
+  handleGoodIncrement = () => {
     this.setState((prevState) => ({
       goodValue: prevState.goodValue + 1,
     }));
@@ -30,18 +33,35 @@ class Counter extends Component {
     }));
   };
 
-    render() {
-        return (
-          <div>
-<Controls onGood={this.handleGoodIncrement}
+  render() {
+    const { goodValue, neutralValue, badValue } = this.state;
+    const totalFeedback = goodValue + neutralValue + badValue;
+    const positiveFeedbackPercentage =
+      totalFeedback === 0
+        ? 0
+        : ((goodValue / totalFeedback) * 100).toFixed(2) + '%';
+
+    return (
+      <div className= "counter"> 
+        <Controls
+          onGood={this.handleGoodIncrement}
           onNeutral={this.handleNeutralIncrement}
           onBad={this.handleBadIncrement}
-          goodValue={this.state.goodValue}
-          neutralValue={this.state.neutralValue}
-          badValue={this.state.badValue} />
-          </div>
-        );
-      }
+        />
+        {totalFeedback !== 0 && (
+          <Statistics
+            goodValue={goodValue}
+            neutralValue={neutralValue}
+            badValue={badValue}
+            onTotal={totalFeedback}
+            onPositiveFeedback={positiveFeedbackPercentage}
+          />
+        )}
+        {totalFeedback === 0 && (<Notification
+        message={"There is no feedback"}/>)}
+      </div>
+    );
+  }
 }
 
 export default Counter;

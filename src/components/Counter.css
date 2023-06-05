@@ -1,0 +1,57 @@
+.counter {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+  color: rgb(1, 1, 1);
+}
+
+.buttonList {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+}
+
+.Button {
+  border: 2px solid #0da1ac;
+  box-shadow: 0 10px 25px #0da1ac;
+  color: #354344;
+  cursor: pointer;
+  font-size: 25px;
+  height: 70px;
+  width: 160px;
+  border-radius: 20px;
+}
+
+.title {
+  color: #354344;
+  font-size: 70px;
+  text-align: center;
+}
+
+.message {
+  color: #cf3737;
+  font-size: 50px;
+  text-align: center;
+  margin-top: 0;
+}
+
+.feedback {
+  align-items: center;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  list-style: none;
+}
+
+.feedbackList {
+  border: 2px solid #0da1ac;
+  box-shadow: 0 10px 25px #0da1ac;
+  color: #354344;
+  border-radius: 10px;
+  font-size: 30px;
+}
