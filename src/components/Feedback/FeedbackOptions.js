@@ -2,7 +2,7 @@ import React from "react";
 import css from "./Counter.css"
 
 
-const Controls = ({ onGood, onNeutral, onBad}) => {
+const Counter = ({ onGood, onNeutral, onBad}) => {
   return (
     <div>
       <section className={css.statistics}>
@@ -24,4 +24,4 @@ const Controls = ({ onGood, onNeutral, onBad}) => {
   );
 };
 
-export default Controls;
+export default Counter;
