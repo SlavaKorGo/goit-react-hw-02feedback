@@ -2,26 +2,43 @@ import React from "react";
 import css from "./Counter.css"
 
 
-const Counter = ({ onGood, onNeutral, onBad}) => {
+const FeedbackOptions = ({ options, onLeaveFeedback}) => {
+  const keys = Object.keys(options);
   return (
     <div>
       <section className={css.statistics}>
         <h2 className="title">Please leave feedback</h2>
-        <ul className="buttonList">
-          <li >
-            <button type="button" className="Button" onClick={onGood}>Good</button>
-          </li>
-          <li>
-            <button type="button" className="Button"onClick={onNeutral}>Neutral</button>
-          </li>
-          <li>
-            <button type="button" className="Button" onClick={onBad}>Bad</button>
-          </li>
-        </ul>
+        <>
+      {keys.map(key => (
+        <button className="Button" key={key} onClick={() => onLeaveFeedback(key)}>{key.charAt(0).toUpperCase() + key.slice(1)}</button>
+      ))}
+    </>
         <h3 className="title">Statistics</h3>
       </section>
     </div>
   );
 };
 
-export default Counter;
+export default FeedbackOptions;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

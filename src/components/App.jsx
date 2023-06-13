@@ -12,7 +12,7 @@ export class App extends Component {
     badValue: 0,
   };
 
-  handleIncrement = (options) => {
+  onLeaveFeedback  = (options) => {
     this.setState((prevState) => ({
       [options]: prevState[options] + 1,
     }));
@@ -35,9 +35,10 @@ export class App extends Component {
     return (
       <div className="counter">
         <FeedbackOptions
-          onGood={() => this.handleIncrement("goodValue")}
-          onNeutral={() => this.handleIncrement("neutralValue")}
-          onBad={() => this.handleIncrement("badValue")}
+          // onGood={() => this.handleIncrement("goodValue")}
+          // onNeutral={() => this.handleIncrement("neutralValue")}
+          // onBad={() => this.handleIncrement("badValue")}
+          options={this.state} onLeaveFeedback={this.onLeaveFeedback} 
         />
         {this.countTotalFeedback() !== 0 && (
           <Statistics
@@ -55,5 +56,7 @@ export class App extends Component {
     );
   }
 }
+
+
 
 
